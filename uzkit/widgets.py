@@ -205,6 +205,13 @@ class Worker(QRunnable):
     def cancelled(self) -> bool:
         return self._cancel
 
+    def _emit(self, sig, *a):
+        """Oyna yopilib, signal obyekti o'chirilgan bo'lsa ham xato bermasin."""
+        try:
+            sig.emit(*a)
+        except RuntimeError:
+            pass
+
     @Slot()
     def run(self):
         try:
@@ -212,18 +219,18 @@ class Worker(QRunnable):
             params = list(inspect.signature(self.fn).parameters)
             if params and params[0] == "progress":
                 def cb(pct=0, msg=""):
-                    self.signals.progress.emit(int(pct), str(msg))
+                    self._emit(self.signals.progress, int(pct), str(msg))
                 cb.cancelled = lambda: self._cancel
                 res = self.fn(cb, *self.args, **self.kwargs)
             else:
                 res = self.fn(*self.args, **self.kwargs)
-            self.signals.result.emit(res)
+            self._emit(self.signals.result, res)
         except Exception as ex:  # noqa
             from .app import log_exception
             log_exception(ex)
-            self.signals.error.emit(f"{ex}")
+            self._emit(self.signals.error, f"{ex}")
         finally:
-            self.signals.finished.emit()
+            self._emit(self.signals.finished)
 
 
 _ACTIVE_WORKERS: set = set()
@@ -254,7 +261,9 @@ def error(parent, text: str, title: str = ""):
 def ask(parent, text: str, title: str = "") -> bool:
     box = QMessageBox(QMessageBox.Question, title or tr("confirm"), text, parent=parent)
     yes = box.addButton(tr("yes"), QMessageBox.YesRole)
-    box.addButton(tr("no"), QMessageBox.NoRole)
+    no = box.addButton(tr("no"), QMessageBox.NoRole)
+    box.setDefaultButton(no)      # Enter xavfsiz variantni tanlaydi
+    box.setEscapeButton(no)
     box.exec()
     return box.clickedButton() is yes
 
