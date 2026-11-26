@@ -1,0 +1,31 @@
+{
+  "slug": "disk-tahlilchisi",
+  "exe_name": "DiskTahlilchisi",
+  "version": "1.0.0",
+  "accent": "#d89b1c",
+  "font": "Segoe UI Variable Small",
+  "icon_text": "D",
+  "folder": "Disk tahlilchisi",
+  "palette": {
+    "light": {"bg": "#f2f1ed", "surface": "#ffffff", "surface2": "#f4f2ec", "border": "#dcd8cd",
+              "text": "#24221d", "muted": "#6e695e", "hover": "#ebe7dc"},
+    "dark": {"bg": "#16181b", "surface": "#1e2125", "surface2": "#24282d", "border": "#33383f",
+             "text": "#e5e6e8", "muted": "#979da6", "hover": "#2b3036"}
+  },
+  "name": {"uz": "Disk tahlilchisi", "ru": "Анализатор дисков", "en": "Disk Analyzer"},
+  "description": {
+    "uz": "Disk va papkalarda joyni nima egallayotganini ko'rsatadi: papkalar xaritasi, eng katta va eski fayllar, fayl turlari statistikasi, kesh va vaqtinchalik fayllarni Savatga tozalash.",
+    "ru": "Показывает, что занимает место на дисках и в папках: карта папок, самые большие и старые файлы, статистика по типам файлов, очистка кэша и временных файлов в Корзину.",
+    "en": "Shows what takes up space on drives and in folders: a folder map, the largest and oldest files, file type statistics, and cleanup of cache and temporary files to the Recycle Bin."
+  },
+  "features": {
+    "uz": ["Disklar bo'yicha band va bo'sh joy", "Ko'p oqimli tez skanerlash, istalgan payt to'xtatish mumkin", "Papkalar xaritasi (treemap): papkani bosib ichiga kirish", "Hajm, ulush va fayllar soni bo'yicha saralanadigan papkalar daraxti", "Eng katta 100 ta fayl va fayl turlari statistikasi", "Uzoq vaqt ochilmagan katta fayllar", "Brauzer, Unity, Adobe keshlari va Temp papkalarini tozalash", "O'chirish faqat Savatga, tasdiqlash bilan", "HTML va CSV hisobot"],
+    "ru": ["Занятое и свободное место по дискам", "Быстрое многопоточное сканирование с возможностью остановки", "Карта папок (treemap) с переходом внутрь по щелчку", "Дерево папок с сортировкой по размеру, доле и числу файлов", "100 самых больших файлов и статистика по типам", "Большие файлы, которые давно не открывались", "Очистка кэша браузеров, Unity, Adobe и папок Temp", "Удаление только в Корзину и с подтверждением", "Отчёт в HTML и CSV"],
+    "en": ["Used and free space per drive", "Fast multithreaded scan that can be stopped at any time", "Folder map (treemap) with click-to-open", "Folder tree sortable by size, share and file count", "The 100 largest files and file type statistics", "Large files that have not been opened for a long time", "Cleanup of browser, Unity and Adobe caches and Temp folders", "Deletion only to the Recycle Bin, with confirmation", "HTML and CSV reports"]
+  },
+  "category": "Tizim / disk",
+  "topics": ["disk-space", "disk-analyzer", "treemap", "cleanup"],
+  "min_os": "Windows 10 (1809+) / Windows 11, x64",
+  "screenshot_size": [1240, 780],
+  "build": {"mode": "onefile", "excludes": ["numpy", "PIL", "matplotlib", "pandas", "lxml", "cryptography", "faster_whisper", "openpyxl"]}
+}

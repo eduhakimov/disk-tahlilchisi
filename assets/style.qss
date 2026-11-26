@@ -1,0 +1,34 @@
+QFrame#TopBar { background: {surface}; border: none; border-bottom: 1px solid {border}; }
+QFrame#ScanStrip { background: {bg}; border: none; border-bottom: 1px solid {border}; }
+QFrame#VSep { background: {border}; margin: 4px 4px; }
+QPushButton, QToolButton#ExportBtn { border-radius: 3px; padding: 6px 12px; }
+QPushButton#Primary { color: #1b1606; border: 1px solid {accent}; padding: 6px 18px; }
+QPushButton#Primary:disabled { color: {muted}; }
+QPushButton#DangerSoft { color: #c2412f; }
+QPushButton#DangerSoft:hover { background: #c2412f; color: white; border-color: #c2412f; }
+QToolButton { border: 1px solid transparent; border-radius: 3px; padding: 4px; }
+QToolButton:hover { background: {hover}; border-color: {border}; }
+QToolButton#ExportBtn { background: {surface2}; border: 1px solid {border}; }
+QToolButton#ExportBtn::menu-indicator { image: none; width: 0; }
+QLineEdit, QSpinBox, QComboBox { border-radius: 3px; }
+QFrame#Card, QFrame#DriveCard { background: {surface}; border: 1px solid {border}; border-radius: 4px; }
+QFrame#DriveCard:hover { border-color: {accent}; }
+QFrame#MapFrame { background: {surface}; border: 1px solid {border}; border-radius: 2px; }
+QFrame#RecycleStrip { background: {surface}; border: 1px solid {border}; border-left: 3px solid {accent}; border-radius: 2px; }
+QLabel#DriveLetter { font-size: 17pt; font-weight: 600; }
+QLabel#Title { font-size: 15pt; font-weight: 600; }
+QLabel#CrumbSep { color: {muted}; padding: 0 2px; }
+QPushButton#Crumb { background: transparent; border: none; padding: 3px 6px; color: {accent}; font-weight: 600; }
+QPushButton#Crumb:hover { background: {hover}; }
+QPushButton#Crumb:disabled { color: {text}; background: transparent; }
+QTabWidget#MainTabs::pane { border: none; background: {bg}; top: 0; }
+QTabWidget#MainTabs > QTabBar { background: {surface}; }
+QTabWidget#MainTabs QTabBar::tab { padding: 9px 16px; margin: 0; border: none; border-bottom: 2px solid transparent;
+    color: {muted}; background: {surface}; }
+QTabWidget#MainTabs QTabBar::tab:selected { color: {text}; border-bottom: 2px solid {accent}; font-weight: 600; }
+QTabWidget#MainTabs QTabBar::tab:hover { color: {text}; background: {hover}; }
+QTableView, QTreeView { border-radius: 2px; }
+QHeaderView::section { font-weight: 600; padding: 6px 8px; }
+QProgressBar { border-radius: 2px; }
+QProgressBar::chunk { border-radius: 2px; }
+QScrollArea#Plain, QWidget#Plain { background: transparent; border: none; }
