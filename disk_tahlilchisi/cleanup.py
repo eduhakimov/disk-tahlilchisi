@@ -164,6 +164,8 @@ def is_protected(path: str) -> bool:
     prof = os.path.normcase(os.path.normpath(os.environ.get("USERPROFILE", "") or "?"))
     if os.path.dirname(p) == prof:      # Desktop, Documents, Downloads, AppData ... ning o'zi
         return True
+    if os.path.dirname(p) == roots[-1]:     # C:\Users\<boshqa foydalanuvchi>, Public, Default
+        return True
     windir = roots[0]
     allowed_in_windir = [os.path.join(windir, "temp"), os.path.join(windir, "softwaredistribution", "download"),
                          os.path.join(windir, "minidump")]
